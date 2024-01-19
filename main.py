@@ -31,4 +31,13 @@ resources = {
     "money": 0,
 }
 
+def report_resources():
+    print(f"Water: {resources['water']}ml")
+    print(f"Milk: {resources['milk']}ml")
+    print(f"Coffee: {resources['coffee']}g")
+    print(f"Money: ${resources['money']}")
+
 process = input("What would you like? (espresso/latte/cappuccino): ")
+
+if process == 'report':
+    report_resources()
