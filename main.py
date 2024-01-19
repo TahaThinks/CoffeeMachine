@@ -26,7 +26,7 @@ MENU = {
 
 resources = {
     "water": 300,
-    "milk": 200,
+    "milk": 50,
     "coffee": 100,
     "money": 0,
 }
@@ -36,8 +36,6 @@ def report_resources():
     print(f"Milk: {resources['milk']}ml")
     print(f"Coffee: {resources['coffee']}g")
     print(f"Money: ${resources['money']}")
-
-
 
 #Penny: 0.01 | Nickel: 0.05 | Dime: 0.10 | Quarter 0.25
 def process_money(cost,drink):
@@ -52,6 +50,17 @@ def process_money(cost,drink):
         change = sum - cost
         print(f"Here is ${change} in change")
         #consume_resources(drink)
+
+def check_resources(choosen_drink):
+    needed_resource = MENU[choosen_drink]["ingredients"]
+    print(needed_resource)
+    for key in needed_resource:
+        if needed_resource[key] > resources[key]:
+            print(f"Sorry there is not enough {key}")
+            return
+    print(f"Enjoy your {choosen_drink}")
+
+
 
 drink = input("What would you like? (espresso/latte/cappuccino): ").lower()
 
