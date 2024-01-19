@@ -30,3 +30,5 @@ resources = {
     "coffee": 100,
     "money": 0,
 }
+
+process = input("What would you like? (espresso/latte/cappuccino): ")
