@@ -37,7 +37,25 @@ def report_resources():
     print(f"Coffee: {resources['coffee']}g")
     print(f"Money: ${resources['money']}")
 
-process = input("What would you like? (espresso/latte/cappuccino): ")
 
-if process == 'report':
+
+#Penny: 0.01 | Nickel: 0.05 | Dime: 0.10 | Quarter 0.25
+def process_money(cost,drink):
+    quarters = int(input("How many quarters?: ")) * 0.25
+    dimes = int(input("How many dimes?: ")) * 0.10
+    nickles = int(input("How many nickles?: ")) * 0.05
+    pennies = int(input("How many pennies?: ")) * 0.01
+    sum = quarters + dimes + nickles + pennies
+    if sum < cost:
+        print("Not Enough Money")
+    elif sum > cost:
+        change = sum - cost
+        print(f"Here is ${change} in change")
+        #consume_resources(drink)
+
+drink = input("What would you like? (espresso/latte/cappuccino): ").lower()
+
+if drink == 'report':
     report_resources()
+else:
+    check_resources(drink)
